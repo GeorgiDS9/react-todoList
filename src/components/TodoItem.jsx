@@ -24,14 +24,12 @@ import React from "react";
   // VERSION 2 ~ When click on an item, delete it
 
   function TodoItem(props) {
-    const [isDone, setIsDone] = useState(false);
-
-  function handleClick(){
-  
-  }
 
   return (
-    <div onClick={handleClick}>
+    // function inside that gets triuggered only when the onClick happens.
+    <div onClick={() => {
+      props.onChecked(props.id);
+    }}>
       <l1>{props.text}</l1>
     </div>
   );

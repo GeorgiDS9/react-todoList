@@ -29,6 +29,15 @@ function App() {
       setInputText("");
     }
 
+    // 3. Add deleteItem function for VERSION 2
+    function deleteItem(id) {
+      setItems(prevItems => {
+        return prevItems.filter((item, index) => {
+          return index !== id;
+        });
+      });
+    }
+
   // 1b. Add "value" property to the input below, to tie it to the inputText of the useState. This way, we are controlling the input and keeping it aligned to the inputText.
 
   // 1c. We are going to call the function when the input gets changed, so we add "onChange" to input. The function is handleChange that we created.
@@ -46,8 +55,15 @@ function App() {
       </div>
       <div>
         <ul>
-          {items.map(item => (
-            <TodoItem text={item} />
+          {items.map((item, index) => (
+            <TodoItem 
+            // create key for each item ( which will be the index of the item in the items array). React advises against using the index of the array as a key. UUID package can be installed to create unique keys.
+              key={index}
+              id={index}
+              text={item} 
+              // add an "onCheck" property for VERSION 2 (delete items)
+              onChecked={deleteItem}
+            />
           ))}
         </ul>
       </div>
