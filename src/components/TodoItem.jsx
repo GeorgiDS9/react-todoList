@@ -22,18 +22,15 @@ import React from "react";
 // }
 
   // VERSION 2 ~ When click on an item, delete it
-
   function TodoItem(props) {
-
-  return (
-    // function inside that gets triuggered only when the onClick happens.
-    <div onClick={() => {
-      props.onChecked(props.id);
-    }}>
-      <l1>{props.text}</l1>
-    </div>
-  );
-
+    return (
+      // function inside that gets triuggered only when the onClick happens.
+      <div onClick={() => {
+        props.onChecked(props.id);
+      }}>
+        <l1>{props.text}</l1>
+      </div>
+    );
   }
 
 export default TodoItem;
